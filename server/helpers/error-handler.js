@@ -12,7 +12,7 @@ module.exports = function (err, req, res, next) {
             message: `Error 404: Not Found`
         })
     } else if (err.name === 'ValidationError') {
-        res.status(400).json(err.message);
+        res.status(400).json(err);
     } else {
         console.log(err)
         res.status(500).json({

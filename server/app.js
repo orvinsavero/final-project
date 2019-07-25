@@ -6,7 +6,8 @@ const cors = require('cors')
 const app = express()
 const errorHandler = require('./helpers/error-handler.js')
 
-mongoose.connect('mongodb://localhost/final-project', {useNewUrlParser: true})
+let local = 'mongodb://localhost/final-project-' + process.env.NODE_ENV 
+mongoose.connect(local, {useNewUrlParser: true})
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
@@ -18,3 +19,5 @@ const PORT = 3000
 app.listen(PORT, ()=> {
     console.log(`connected to port: ${PORT}`)
 })
+
+module.exports = app
