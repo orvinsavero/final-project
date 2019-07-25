@@ -39,6 +39,19 @@ module.exports = {
         }
     })
     .catch(next)
+  },
+  BidAuthorization: function (req, res, next){
+    Product.findById(req.params.id)
+    .then((result) => {
+        if (result.status == 'false'){
+            next()
+        } else {
+            throw {
+                code: 400
+            }
+        }
+    })
+    .catch(next)
   }
 }
 

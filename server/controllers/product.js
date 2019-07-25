@@ -5,7 +5,7 @@ class ProductController {
         let newProduct = {
             title: req.body.title,
             created_at: new Date(),
-            status: false,
+            status: 'false',
             images: req.body.newImages,
             category: req.body.category,
             initialPrice: req.body.initialPrice,
