@@ -61,6 +61,48 @@ class UserController{
         })
         .catch(next)
     }
+    static topup(req,res,next){
+        let id = req.decoded.id
+        let balance = req.body.balance
+        User.findByIdAndUpdate(id, { $inc: {balance: balance} }, { new: true })
+        .then(result => {
+          res.status(200).json(result);
+        })
+        .catch(next);
+    }
+    static readHistory(req,res,next){
+        let id = req.decoded.id
+        User.findOne({
+            _id: id
+        })
+        .populate('history')
+        .then((result) => {
+            res.status(200).json(result)
+        })
+        .catch(next)
+    }
+    static addProduct(req,res,next){
+        let id = req.decoded.id
+        let productId = req.params.productId
+        User.findOneAndUpdate(
+            {_id: id},
+            {$push: 
+                {history: productId}
+            },
+                {new: true}
+            )
+        .populate('history')
+        .then((result) => {
+            if(result.history[result.history.length-1]._id.toString() == productId){
+                res.status(200).json(result)
+            } else {
+                throw {
+                    code: 404
+                }
+            }
+        })
+        .catch(next)
+    }
 }
 
 module.exports = UserController

@@ -6,5 +6,8 @@ routes.post("/signup", UserController.signup)
 routes.post("/signin", UserController.signin)
 routes.use(Authentication)
 routes.get("/user", UserController.findOne)
+routes.patch("/topup", UserController.topup)
+routes.patch("/:productId", UserController.addProduct)
+routes.get("/history", UserController.readHistory)
 
 module.exports = routes
