@@ -41,16 +41,16 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: "Products",
         tabBarIcon: ({ tintColor }) => (
-          <Ionicons name="ios-home" color={tintColor} size={24} />
+          <Ionicons name="ios-albums" color={tintColor} size={24} />
         )
-      }
+      },
     },
     MyProduct: {
       screen: MyProduct,
       navigationOptions: {
         tabBarLabel: "MyProduct",
         tabBarIcon: ({ tintColor }) => (
-          <Ionicons name="ios-tennisball" color={tintColor} size={24} />
+          <Ionicons name="ios-apps" color={tintColor} size={24} />
         )
       }
     },
@@ -59,7 +59,7 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: "History",
         tabBarIcon: ({ tintColor }) => (
-          <Ionicons name="ios-home" color={tintColor} size={24} />
+          <Ionicons name="ios-book" color={tintColor} size={24} />
         )
       }
     },
@@ -68,14 +68,24 @@ const MainNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: "Profile",
         tabBarIcon: ({ tintColor }) => (
-          <Ionicons name="ios-tennisball" color={tintColor} size={24} />
+          <Ionicons name="ios-person" color={tintColor} size={24} />
         )
       }
     }
   },
 
   {
-    initialRouteName: "Products"
+    initialRouteName: "Products",
+    tabBarOptions: {
+      activeTintColor: 'lightblue',
+      inactiveTintColor: 'white',
+      labelStyle: {
+        fontSize: 14,
+      },
+      style: {
+        backgroundColor: 'red',
+      },
+    }
   }
 );
 

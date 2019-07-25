@@ -10,10 +10,14 @@ import {
   ScrollView,
   TouchableHighlight
 } from "react-native";
+import Title from "../components/Title";
 export default function Profile(props) {
   return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <Text>Profile</Text>
+      <SafeAreaView style={styles.container}>
+      <Title
+      title="Profile"
+      style={styles.text}
+    />
       </SafeAreaView>
   );
 }
@@ -21,6 +25,12 @@ export default function Profile(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white"
-  }
+    backgroundColor: "black"
+  },
+  text: {
+    textAlign: "center",
+    margin: 5,
+    fontSize: 25,
+    fontWeight: "bold"
+  },
 });

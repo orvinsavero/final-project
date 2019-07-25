@@ -10,10 +10,14 @@ import {
   ScrollView,
   TouchableHighlight
 } from "react-native";
+import Title from "../components/Title";
 export default function History(props) {
   return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <Text>History</Text>
+      <SafeAreaView style={styles.container}>
+      <Title
+      title="History"
+      style={styles.text}
+    />
       </SafeAreaView>
   );
 }
@@ -21,6 +25,12 @@ export default function History(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white"
-  }
+    backgroundColor: "black"
+  },
+  text: {
+    textAlign: "center",
+    margin: 5,
+    fontSize: 25,
+    fontWeight: "bold"
+  },
 });
